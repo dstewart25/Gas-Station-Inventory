@@ -88,7 +88,7 @@ public class VendorCreateAlertView extends JPanel {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
             // Connecting to database
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             DriverManager.setLoginTimeout(15);
             Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://mfis-db-instance.ch7fymzvlb8l.us-east-1.rds.amazonaws.com:3306/MFIS_DB",

@@ -129,7 +129,7 @@ public class LoginScreen extends JPanel {
     private boolean checkLogin() {
         try {
             // Connecting to database
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             DriverManager.setLoginTimeout(10);
             Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://mfis-db-instance.ch7fymzvlb8l.us-east-1.rds.amazonaws.com:3306/MFIS_DB",
