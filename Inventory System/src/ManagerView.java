@@ -23,7 +23,7 @@ public class ManagerView extends JPanel {
     }
 
     private void initialize() {
-        frame.setTitle("Manager");
+        frame.setTitle("MFIS");
 
         // Importing alerts from the database
         importAlertsFromDatabase();
@@ -46,6 +46,7 @@ public class ManagerView extends JPanel {
                 frame.getContentPane().add(new LoginScreen(frame));
                 frame.pack();
                 frame.getContentPane().setVisible(true);
+                frame.setSize(400,275);
             }
         });
 
@@ -108,6 +109,7 @@ public class ManagerView extends JPanel {
             frame.getContentPane().add(new LoginScreen(frame));
             frame.pack();
             frame.getContentPane().setVisible(true);
+            frame.setSize(400,275);
         }
     }
 
