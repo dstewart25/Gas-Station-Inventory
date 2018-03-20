@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ManagerAlertsView extends JPanel {
+    private DefaultTableModel alertsTableModel;
+    public static int alertIndex;
+
     public ManagerAlertsView() {
         setLayout(new BorderLayout());
         initialize();
@@ -13,13 +16,11 @@ public class ManagerAlertsView extends JPanel {
     private void initialize() {
         JPanel buttonPanel = new JPanel(new BorderLayout());
 
-        // Setting up table to show alerts
         /*
+        Setting up table to show alerts
         The 0 below would be the size of the primary key in the inventory database
          */
-        String[] column = {"Alerts"};
-        String[][] data = new String[0][column.length]; // Holds information for columns
-        DefaultTableModel alertsTableModel = new DefaultTableModel(data, column);
+        importAlertsToTable(); // Importing alerts from an array of all the alerts
         JTable alertsTable = new JTable(alertsTableModel);
         JScrollPane alertScrollPane = new JScrollPane(alertsTable,
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -31,10 +32,24 @@ public class ManagerAlertsView extends JPanel {
         viewAlertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                alertIndex = alertsTable.getSelectedRow();
+                ManagerView.changeToAlertDetailView();
             }
         });
 
         add(alertScrollPane, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    private void importAlertsToTable() {
+        String[] column = {"Subject", "Date Received"};
+        String[][] data = new String[ManagerView.alerts.size()][column.length]; // Holds information for columns
+        if (ManagerView.alerts.size() != 0) {
+            for (int i = 0; i < ManagerView.alerts.size(); i++) {
+                data[i][0] = ManagerView.alerts.get(i).getSubject();
+                data[i][1] = ManagerView.alerts.get(i).getTime().toString();
+            }
+        }
+        alertsTableModel = new DefaultTableModel(data, column);
     }
 }
