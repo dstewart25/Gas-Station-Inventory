@@ -26,7 +26,6 @@ public class ManagerView extends JPanel {
         frame.setTitle("Manager");
 
         // Importing alerts from the database
-        importAlertsFromDatabase();
         alertsView = new ManagerAlertsView();
         alertDetailView = new ManagerAlertDetailView();
 
@@ -65,7 +64,7 @@ public class ManagerView extends JPanel {
     Connects to database and imports information from the alert table
     Then puts the information into an ArrayList of Alert
      */
-    private void importAlertsFromDatabase() {
+    public static void importAlertsFromDatabase() {
         alerts = new ArrayList<>(); // Resetting alerts so there are no duplicates
 
         try {
@@ -100,14 +99,9 @@ public class ManagerView extends JPanel {
         } catch(Exception e) {
             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
                     "Unable to login.",
-                    "Error",
+                    "Database Error",
                     JOptionPane.WARNING_MESSAGE);
             System.out.println(e);
-            // Resetting login view
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(new LoginScreen(frame));
-            frame.pack();
-            frame.getContentPane().setVisible(true);
         }
     }
 
