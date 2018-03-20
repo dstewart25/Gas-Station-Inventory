@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <eclipse-userlibraries>
-  <library name="Inventory System">
-    <archive path="/Users/danny/Desktop/Spring 2018/Software Specifictations/Gas-Station-Inventory/Inventory System/out/production/Inventory System/mysql-connector-java-5.1.46-bin.jar" />
-    <archive path="/Users/danny/Desktop/Spring 2018/Software Specifictations/Gas-Station-Inventory/Inventory System/out/production/Inventory System/mysql-connector-java-5.1.46.jar" />
-  </library>
   <library name="mysql:mysql-connector-java:6.0.6">
-    <archive path="/Users/danny/Desktop/Spring 2018/Software Specifictations/Gas-Station-Inventory/lib/mysql-connector-java-6.0.6.jar" />
+    <archive path="org.eclipse.jdt.USER_LIBRARY/mysql:mysql-connector-java:6.0.6" />
   </library>
 </eclipse-userlibraries>
 
